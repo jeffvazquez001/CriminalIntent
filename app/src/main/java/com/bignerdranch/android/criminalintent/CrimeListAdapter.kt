@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.criminalintent.databinding.ListItemCrimeBinding
+import java.text.DateFormat
 import java.util.UUID
 
 class CrimeHolder(
@@ -13,7 +14,7 @@ class CrimeHolder(
 ) : RecyclerView.ViewHolder(binding.root){
     fun bind(crime:Crime,onCrimeClicked: (crimeId : UUID) -> Unit){
         binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+        binding.crimeDate.text = DateFormat.getDateInstance(DateFormat.FULL).format(crime.date)
 
         binding.root.setOnClickListener {
             onCrimeClicked(crime.id)

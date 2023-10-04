@@ -42,7 +42,7 @@ class CrimeDetailFragment: Fragment() {
     }
     private val selectSuspect = registerForActivityResult(
         ActivityResultContracts.PickContact()
-    ){uri: Uri? ->
+    ){ uri: Uri? ->
         uri?.let {parseContactSelection(it)}
     }
     private val takePhoto = registerForActivityResult(
@@ -91,7 +91,7 @@ class CrimeDetailFragment: Fragment() {
                 requireContext(),
                 null
             )
-            crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
+            //crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
 
             crimeCamera.setOnClickListener {
                 photoName = "IMG_${Date()}.JPG"
